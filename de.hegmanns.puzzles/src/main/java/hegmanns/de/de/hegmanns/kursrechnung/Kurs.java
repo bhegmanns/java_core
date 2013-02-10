@@ -1,48 +1,62 @@
 package hegmanns.de.de.hegmanns.kursrechnung;
 
+import java.math.BigDecimal;
+
+import hegmanns.de.de.hegmanns.fundamental.core.Assertation;
+
+/**
+ * Beschreibt einen Kurs, den Multiplikator zwischen Ausgangs- und Zielwaehrung sowie die Kursqualitaet.
+ * 
+ * @author B. Hegmanns
+ */
 public class Kurs {
 
-	private String waehrungssymbol;
-	private String land;
+	/**
+	 * Die Ausgangswaehrung (Herkunft-Waehrung)
+	 */
+	private Waehrung ausgangswaehrung;
 	
-	public Kurs(String waehrungssymbol){
-		this(true, waehrungssymbol, null);
-	}
-	public Kurs(String waehrungssymbol, String land){
-		this(true, waehrungssymbol, land);
-	}
-	private Kurs(boolean mitPruefung, String waehrungssymbol, String land){
-		if (mitPruefung)
-		{
-			check(waehrungssymbol, land);
-		}
-		this.waehrungssymbol = waehrungssymbol;
-		this.land = land;
-	}
+	/**
+	 * Die Zielwaehrung
+	 */
+	private Waehrung zielwaehrung;
 	
-	private void check(String waehrungssymbol, String land){
-		if (land != null)
-		{
-			if (land.length() != 2)
-			{
-				throw new IllegalArgumentException("Land muss drei-stellig sein.");
-			}
-		}
-		
-		if (waehrungssymbol != null)
-		{
-			if (waehrungssymbol.length() != 3)
-			{
-				throw new IllegalArgumentException("Waehrungssymbol muss drei-stellig sein.");
-			}
-		}
-	}
+	/**
+	 * Der Multiplikator zwischne Ausgangs- und Zielwaehrung, also
+	 * <code>
+	 * 	betragInAusgangswaehrung * multiplikator = betragInZielwaehrung
+	 * </code>
+	 */
+	private BigDecimal multiplikator;
 	
-	public String getWaehrungssymbol() {
-		return waehrungssymbol;
+	/**
+	 * Die Kursqualitaet, beschreibt die Herkunft des Kurses.
+	 */
+	private Kursqualitaet kursqualitaet;
+	
+	public Waehrung getAusgangswaehrung() {
+		return ausgangswaehrung;
 	}
-	public String getLand() {
-		return land;
+	public void setAusgangswaehrung(Waehrung ausgangswaehrung) {
+		this.ausgangswaehrung = ausgangswaehrung;
+	}
+	public Waehrung getZielwaehrung() {
+		return zielwaehrung;
+	}
+	public void setZielwaehrung(Waehrung zielwaehrung) {
+		this.zielwaehrung = zielwaehrung;
+	}
+	public BigDecimal getMultiplikator() {
+		return multiplikator;
+	}
+	public void setMultiplikator(BigDecimal multiplikator) {
+		this.multiplikator = multiplikator;
+	}
+	public Kursqualitaet getKursqualitaet() {
+		return kursqualitaet;
+	}
+	public void setKursqualitaet(Kursqualitaet kursqualitaet) {
+		this.kursqualitaet = kursqualitaet;
 	}
 	
 	

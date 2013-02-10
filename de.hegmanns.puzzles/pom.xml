@@ -15,6 +15,13 @@
     <version.junit>4.8.2</version.junit>
   </properties>
 
+  <repositories>
+  	<repository>
+  		<id>ithegmanns.repo</id>
+  		<url>https://github.com/bhegmanns/mvn_repo.git/repo</url>
+  	</repository>
+  </repositories>
+
   <dependencies>
     <dependency>
     	<groupId>org.hamcrest</groupId>
@@ -32,5 +39,28 @@
     	<artifactId>mockito-all</artifactId>
     	<version>1.9.5</version>
     </dependency>
+    <dependency>
+    	<groupId>hegmanns.de</groupId>
+    	<artifactId>de.hegmanns.fundamental.core</artifactId>
+    	<version>1.0.0</version>
+    </dependency>
+    <dependency>
+    	<groupId>commons-lang</groupId>
+    	<artifactId>commons-lang</artifactId>
+    	<version>2.6</version>
+    </dependency>
   </dependencies>
+  
+  <build>
+  	<plugins>
+  		<plugin>
+  			<artifactId>maven-compiler-plugin</artifactId>
+  			<version>2.3.2</version>
+  			<configuration>
+  		<source>1.7</source>
+  		<target>1.7</target>
+  			</configuration>
+  		</plugin>
+  	</plugins>
+  </build>
 </project>
