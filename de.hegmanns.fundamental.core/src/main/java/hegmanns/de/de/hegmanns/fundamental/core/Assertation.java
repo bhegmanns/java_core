@@ -1,6 +1,7 @@
 package hegmanns.de.de.hegmanns.fundamental.core;
 
 /**
+ * Pruefmethoden, die im Fall eines negativen Pruefergebnisses eine {@link IllegalArgumentException} werfen.
  * 
  * @author B. Hegmanns
  */
@@ -72,5 +73,6 @@ public class Assertation {
 			throw new IllegalArgumentException(errorMessage + "(Textlaenge von '" + text + "' ist " + text.length() + ")");
 		}
 	}
+	
 
 }
