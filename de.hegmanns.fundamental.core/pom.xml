@@ -4,7 +4,7 @@
 
   <groupId>hegmanns.de</groupId>
   <artifactId>de.hegmanns.fundamental.core</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <packaging>jar</packaging>
 
   <name>de.hegmanns.fundamental.core</name>
