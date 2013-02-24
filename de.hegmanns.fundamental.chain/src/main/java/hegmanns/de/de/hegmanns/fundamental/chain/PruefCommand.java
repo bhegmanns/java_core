@@ -3,7 +3,7 @@ package hegmanns.de.de.hegmanns.fundamental.chain;
 import java.util.Map;
 
 /**
- * Ein Command fuer einen fachlich franularen Pruefschritt.
+ * Ein Command fuer einen fachlich granularen Pruefschritt.
  * 
  * Grundsaetzlich soll das PruefCommand so realisiert werden,
  * als wenn die gleiche Instanz wiederverwendet wird und ggf.
