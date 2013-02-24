@@ -17,7 +17,7 @@ import java.util.Map;
  * @param <T> Typ des zu pruefenden Objekts
  * @param <E> Beschreibt den Typ der Pruefergebnisse (z.B. String)
  */
-public interface PruefCommand<T, E> {
+public interface AusfuehrungsCommand<T, E extends AusfuehrungsContext<T>, R, A extends ReadableAusfuehrungsResult<R>> {
 
 	/**
 	 * Fuehrt den Pruefschritt durch, bedient sich fuer wichtige Werte des PruefContext
@@ -26,22 +26,22 @@ public interface PruefCommand<T, E> {
 	 * <p>
 	 * 	<b>Hinweis:</b><br>
 	 *  Dem PruefContext kann immer das zu pruefende Objekt entnommen werden,
-	 *  mit {@link PruefContext#getInstance()}.
+	 *  mit {@link AusfuehrungsContext#getInstance()}.
 	 *  <br><br>
 	 *  Dem PruefResult koennen Ergebnisse mit gegeben werden,
-	 *  ueber {@link PruefResult#add(Object)} oder {@link PruefResult#setPruefungDurchgefuehrt(Boolean)}
+	 *  ueber {@link AusfuehrungsResult#add(Object)} oder {@link AusfuehrungsResult#setAusgefuehrt(Boolean)}
 	 * </p>
 	 * 
 	 * 
-	 * @param pruefContext der PruefContext
-	 * @param pruefResult das zu beschreibende PruefResult
+	 * @param ausfuehrungsContext der PruefContext
+	 * @param ausfuehrungsResult das zu beschreibende PruefResult
 	 */
-	public void execute(PruefContext<T> pruefContext, PruefResult<E> pruefResult);
+	public void execute(E ausfuehrungsContext, A ausfuehrungsResult);
 	
 	/**
 	 * Gibt die von diesem PruefCommand moeglichen Pruefergebnisse zurueck.
 	 * 
 	 * @return die Map der moeglichen Pruefergebnisse, der Value ist eine verbale Beschreibung.
 	 */
-	public Map<E, String> getMoeglichePruefergebnisse();
+	public Map<R, String> getMoeglicheErgebnisse();
 }

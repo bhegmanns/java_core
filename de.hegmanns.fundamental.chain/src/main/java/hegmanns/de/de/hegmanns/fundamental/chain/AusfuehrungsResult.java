@@ -4,11 +4,11 @@ package hegmanns.de.de.hegmanns.fundamental.chain;
  * Ein PruefResult steht einem Command individuell zur Verfuegung und wird zur Definition dessen
  * Pruefergebnisses benutzt.
  * 
- * @author bernd
+ * @author B. Hegmanns
  *
  * @param <E> Gibt den Typ des Ergebnisses wieder
  */
-public interface PruefResult<E> {
+public interface AusfuehrungsResult<E> {
 
 	/**
 	 * Indiziert die durchgefuehrte Pruefung als erfolgreich ausgefuehrt.
@@ -19,19 +19,22 @@ public interface PruefResult<E> {
 	 * Eine Pruefung kann beispielsweise dann nicht erfolgreich durchgefuehrt werden, wenn wichtige Informationen
 	 * zur Pruefungsdurchfuehrung nicht vorliegen und auch nicht beschafft werden koennen.
 	 * 
-	 * <br><br>
+	 * <p>
 	 * <b>Wichtig:</b><br>
-	 * Wenn das {@link PruefCommand} diese Methode nicht setzt, so wird implizit davon ausgegangen, dass die Pruefung
+	 * Wenn das {@link AusfuehrungsCommand} diese Methode nicht setzt, so wird implizit davon ausgegangen, dass die Pruefung
 	 * erfolgreich ausgefuehrt worden ist.
+	 * </p>
 	 * 
 	 * @param ausgefuehrt
 	 */
-	public void setPruefungDurchgefuehrt(Boolean ausgefuehrt);
+	public void setAusgefuehrt(Boolean ausgefuehrt);
 	
 	/**
 	 * Fuegt dem PruefResult ein Ergebnis hinzu.
 	 * Diese Methode kann von einem Command beliebig oft verwendet werden, um beispielsweise mehrere Pruefergebnisse
 	 * hinzuzufuegen.
+	 * Ob bei mehrfachem Hinzufuegen des gleichen Wertes der Wert auch mehrfach in die Ergebnismenge eingefuegt wird,
+	 * haengt vom konkreten Typ E ab.
 	 * 
 	 * @param ergebnis das hinzuzufuegende Ergebnis
 	 */
