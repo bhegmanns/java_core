@@ -20,7 +20,7 @@ public class VergleichJUnitAssertHamcrestTest {
 	 * Seit JUnit 4 ist die Fehlermeldung wenigstens besser, so dass bereits in der Fehlermeldung die Typen enthalten sind
 	 * und etwas schneller erkannt wird, dass offensichtlich Werte unterschiedlicher Typen verglichen werden.
 	 * 
-	 * Schade nur, dass eine derartige Konstellation nicht schon einen Compilerfehler ergibt.
+	 * Schade nur, dass eine derartige Konstellation nicht schon einen Compilerfehler verursacht.
 	 */
 	@Test
 	public void fehlerquelleAssert(){
@@ -36,6 +36,12 @@ public class VergleichJUnitAssertHamcrestTest {
 		}
 	}
 	
+	/**
+	 * Hamcrest ist hier noch mal deutlich exakter in der Fehlerbeschreibung.
+	 * 
+	 * Beim Vergleich einer BigDecimal- mit einer Integer-Instanz wuerde es uebrigens
+	 * zu einem Compilerfehler kommen.
+	 */
 	@Test
 	public void vergleichHamcrest(){
 		
