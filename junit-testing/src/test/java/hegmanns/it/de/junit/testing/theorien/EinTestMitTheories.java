@@ -20,14 +20,21 @@ public class EinTestMitTheories {
 	
 	private static String getesteteZahlen = "";
 	
+	/**
+	 * 
+	 * @param wert wird durch die in der Values enthaltenen Werte befuellt und aufgerufen
+	 */
 	@Theory
-	public void foo(int wert){
+	public void testausfuehrung(int wert){
 		Assume.assumeTrue(wert > 0);
 		System.out.println("" + wert);
 		MatcherAssert.assertThat(wert, Matchers.greaterThanOrEqualTo(0));
 		getesteteZahlen += wert + " ";
 	}
 	
+	/**
+	 * Kontrolliert, ob wirklich die erwarteten Werte getestet worden sind.
+	 */
 	@AfterClass
 	public static void schlusstest(){
 		MatcherAssert.assertThat(getesteteZahlen.trim(), Matchers.is("1 2 3 4"));

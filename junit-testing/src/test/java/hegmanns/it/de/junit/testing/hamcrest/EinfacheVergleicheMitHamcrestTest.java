@@ -39,6 +39,7 @@ public class EinfacheVergleicheMitHamcrestTest {
 		MatcherAssert.assertThat("", liste, Matchers.contains("a", "b", "c"));
 		Assert.fail("");
 		}catch(AssertionError e){
+			System.out.println("" + e);
 			MatcherAssert.assertThat("", e.getMessage(), RegexMatcher.findWithRegex("iterable containing.*a.*b.*c.*was null"));
 			System.out.println("" + e);
 		}
@@ -46,7 +47,7 @@ public class EinfacheVergleicheMitHamcrestTest {
 		liste = Arrays.asList(new String[]{"a", "b", "c"});
 		MatcherAssert.assertThat("", liste, Matchers.contains("a", "b", "c"));
 		
-		liste = Arrays.asList(new String[]{"a", "b", "c", "d"});
-		MatcherAssert.assertThat("", liste, Matchers.contains("a", "b", "c"));
+//		liste = Arrays.asList(new String[]{"a", "b", "c", "d"});
+//		MatcherAssert.assertThat("", liste, Matchers.contains("a", "b", "c"));
 	}
 }
