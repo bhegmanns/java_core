@@ -32,21 +32,26 @@ public class EinfacheVergleicheMitHamcrestTest {
 	
 	@Test
 	public void behandlungMitNullCollection(){
-		
 		List<String> liste = null;
-		
-		try{
-		MatcherAssert.assertThat("", liste, Matchers.contains("a", "b", "c"));
-		Assert.fail("");
-		}catch(AssertionError e){
-			MatcherAssert.assertThat("", e.getMessage(), RegexMatcher.findWithRegex("iterable containing.*a.*b.*c.*was null"));
-			System.out.println("" + e);
-		}
 		
 		liste = Arrays.asList(new String[]{"a", "b", "c"});
 		MatcherAssert.assertThat("", liste, Matchers.contains("a", "b", "c"));
+		MatcherAssert.assertThat("", liste, Matchers.containsInAnyOrder("b", "a", "c"));
+		MatcherAssert.assertThat("", liste, Matchers.hasItems("b", "c"));
 		
 		liste = Arrays.asList(new String[]{"a", "b", "c", "d"});
 		MatcherAssert.assertThat("", liste, Matchers.contains("a", "b", "c"));
+		
+		liste = null;
+		
+		try{
+		MatcherAssert.assertThat("", liste, Matchers.contains("a", "b", "c"));
+		Assert.fail("Habe AssertionError erwartet.");
+		}catch(AssertionError e){
+			System.out.println("" + e.getMessage());
+			MatcherAssert.assertThat("Message '" + e.getMessage() + "' matched nicht auf regulaeren Ausdruck.", e.getMessage(), RegexMatcher.findWithRegex("iterable containing.*a.*b.*c.*was null"));
+		}
+		
+		
 	}
 }
