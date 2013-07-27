@@ -54,7 +54,7 @@ public class EinTestMitTheories {
 	 */
 	@Theory
 	public void foo(int wert){
-		Assume.assumeTrue(false);
+//		Assume.assumeTrue(false);
 		Assume.assumeTrue("Wert '" + wert + "' kleiner gleich 0", wert > 0);
 		MatcherAssert.assertThat(wert, Matchers.greaterThanOrEqualTo(0));
 		getesteteZahlen += wert + " ";
