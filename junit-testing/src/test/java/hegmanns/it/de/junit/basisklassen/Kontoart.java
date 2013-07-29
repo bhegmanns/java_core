@@ -1,6 +1,11 @@
 package hegmanns.it.de.junit.basisklassen;
 
-public enum Kontoart {
+/**
+ * 
+ * @author B. Hegmanns
+ */
+public enum Kontoart
+{
 
-	GIROKONTO, TAGEGELDKONTO, SPARKONTO;
+    GIROKONTO, TAGEGELDKONTO, SPARKONTO;
 }

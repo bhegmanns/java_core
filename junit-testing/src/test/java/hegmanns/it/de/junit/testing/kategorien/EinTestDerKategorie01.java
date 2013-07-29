@@ -4,10 +4,12 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
 @Category(Kategorie01.class)
-public class EinTestDerKategorie01 {
+public class EinTestDerKategorie01
+{
 
-	@Test
-	public void foo(){
-		
-	}
+    @Test
+    public void foo()
+    {
+
+    }
 }

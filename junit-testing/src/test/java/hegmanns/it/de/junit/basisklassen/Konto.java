@@ -8,98 +8,176 @@ import java.util.Date;
  * 
  * @author B. Hegmanns
  */
-public class Konto {
+public class Konto
+{
 
-	/**
-	 * Die Kontonummer.
-	 */
-	private String kontonummer;
-	
-	/**
-	 * Die Kontoart.
-	 */
-	private Kontoart kontoart;
-	
-	/**
-	 * Das zum {@link #zeitpunktAktualisierung Akualisierungszeitpunkt} vorhandene Kontosaldo.
-	 */
-	private BigDecimal saldo;
-	
-	/**
-	 * Die Kreditlinie dieses Kontos.
-	 * 
-	 * Kennzeichnet den maximalen negativen Betrag dieses Kontos. Sofern keine Kreditlinie existiert,
-	 * steht hier {@link BigDecimal#ZERO}.
-	 */
-	private BigDecimal kreditlinie;
-	
-	/**
-	 * Zeitpunkt bzw. Bezugszeitpunkt der letzten Aktualisierung dieses Kontos.
-	 * 
-	 * <p>
-	 * 	Im Allgemeinen werden die Konten durch naechtliche Ablaeufe (Batche) aktualisiert.
-	 *  In diesem Fall wuerde hier ein Bezugsdatum stehen.
-	 * </p>
-	 */
-	private Date zeitpunktAktualisierung;
-	
-	
+    /**
+     * Die Kontonummer.
+     */
+    private String kontonummer;
 
-	/**
-	 * TODO Dokument me
-	 */
-	public Konto() {
-		super();
-	}
+    /**
+     * Die Kontoart.
+     */
+    private Kontoart kontoart;
 
-	public Konto(String kontonummer, Kontoart kontoart, BigDecimal saldo,
-			BigDecimal kreditlinie) {
-		super();
-		this.kontonummer = kontonummer;
-		this.kontoart = kontoart;
-		this.saldo = saldo;
-		this.kreditlinie = kreditlinie;
-		this.zeitpunktAktualisierung = new Date();
-	}
+    /**
+     * Das zum {@link #zeitpunktAktualisierung Akualisierungszeitpunkt}
+     * vorhandene Kontosaldo.
+     */
+    private BigDecimal saldo;
 
-	public String getKontonummer() {
-		return kontonummer;
-	}
+    /**
+     * Die Kreditlinie dieses Kontos.
+     * 
+     * Kennzeichnet den maximalen negativen Betrag dieses Kontos. Sofern keine
+     * Kreditlinie existiert, steht hier {@link BigDecimal#ZERO}.
+     */
+    private BigDecimal kreditlinie;
 
-	public void setKontonummer(String kontonummer) {
-		this.kontonummer = kontonummer;
-	}
+    /**
+     * Zeitpunkt bzw. Bezugszeitpunkt der letzten Aktualisierung dieses Kontos.
+     * 
+     * <p>
+     * Im Allgemeinen werden die Konten durch naechtliche Ablaeufe (Batche)
+     * aktualisiert. In diesem Fall wuerde hier ein Bezugsdatum stehen.
+     * </p>
+     */
+    private Date zeitpunktAktualisierung;
 
-	public Kontoart getKontoart() {
-		return kontoart;
-	}
+    /**
+     * Standard-Konstruktor
+     */
+    public Konto()
+    {
+        super();
+    }
 
-	public void setKontoart(Kontoart kontoart) {
-		this.kontoart = kontoart;
-	}
+    /**
+     * Konstruktor.
+     * 
+     * @param kontonummer
+     *            die Kontonummer
+     * @param kontoart
+     *            die Kontoart, {@link Kontoart}
+     * @param saldo
+     *            das aktuelle Saldo zum Erstellungszeitpunkt
+     * @param kreditlinie
+     *            die Kreditlinie
+     */
+    public Konto( String kontonummer, Kontoart kontoart, BigDecimal saldo, BigDecimal kreditlinie )
+    {
+        super();
+        this.kontonummer = kontonummer;
+        this.kontoart = kontoart;
+        this.saldo = saldo;
+        this.kreditlinie = kreditlinie;
+        this.zeitpunktAktualisierung = new Date();
+    }
 
-	public BigDecimal getSaldo() {
-		return saldo;
-	}
+    /**
+     * Getter fuer die Kontonummer
+     * 
+     * @return die Kontonummer als String
+     */
+    public String getKontonummer()
+    {
+        return kontonummer;
+    }
 
-	public void setSaldo(BigDecimal saldo) {
-		this.saldo = saldo;
-	}
+    /**
+     * Setter fuer die Kontonummer
+     * 
+     * @param kontonummer
+     *            Kontonummer
+     */
+    public void setKontonummer( String kontonummer )
+    {
+        this.kontonummer = kontonummer;
+    }
 
-	public BigDecimal getKreditlinie() {
-		return kreditlinie;
-	}
+    /**
+     * Getter fuer die Kontoart.
+     * 
+     * @return Kontoart
+     */
+    public Kontoart getKontoart()
+    {
+        return kontoart;
+    }
 
-	public void setKreditlinie(BigDecimal kreditlinie) {
-		this.kreditlinie = kreditlinie;
-	}
+    /**
+     * Setter fuer die Kontoart.
+     * 
+     * @param kontoart
+     *            Kontoart
+     */
+    public void setKontoart( Kontoart kontoart )
+    {
+        this.kontoart = kontoart;
+    }
 
-	public Date getZeitpunktAktualisierung() {
-		return zeitpunktAktualisierung;
-	}
+    /**
+     * Getter fuer das Saldo.
+     * 
+     * @return Saldo
+     */
+    public BigDecimal getSaldo()
+    {
+        return saldo;
+    }
 
-	public void setZeitpunktAktualisierung(Date zeitpunktAktualisierung) {
-		this.zeitpunktAktualisierung = zeitpunktAktualisierung;
-	}
-	
+    /**
+     * Setter fuer das Saldo.
+     * 
+     * @param saldo
+     *            Saldo
+     */
+    public void setSaldo( BigDecimal saldo )
+    {
+        this.saldo = saldo;
+    }
+
+    /**
+     * Getter fuer die Kreditlinie.
+     * 
+     * @return Kreditlinie
+     */
+    public BigDecimal getKreditlinie()
+    {
+        return kreditlinie;
+    }
+
+    /**
+     * Setter fuer die Kreditlinie.
+     * 
+     * @param kreditlinie
+     *            Kreditlinie
+     */
+    public void setKreditlinie( BigDecimal kreditlinie )
+    {
+        this.kreditlinie = kreditlinie;
+    }
+
+    /**
+     * Getter fuer den Zeitpunkt der letzten Aktualisierung.
+     * 
+     * @return Zeitpunkt der letzten Aktualisierung als Date
+     */
+    public Date getZeitpunktAktualisierung()
+    {
+        return zeitpunktAktualisierung;
+    }
+
+    /**
+     * Setter fuer den Zeitpunkt der letzten Aktualisierung.
+     * 
+     * @param zeitpunktAktualisierung
+     *            letzer Aktualisierungszeitpunkt
+     */
+    public void setZeitpunktAktualisierung( Date zeitpunktAktualisierung )
+    {
+        this.zeitpunktAktualisierung = zeitpunktAktualisierung;
+    }
+
 }

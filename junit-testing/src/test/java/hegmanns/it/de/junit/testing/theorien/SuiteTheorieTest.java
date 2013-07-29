@@ -6,5 +6,6 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses(EinTestMitTheories.class)
-public class SuiteTheorieTest {
+public class SuiteTheorieTest
+{
 }

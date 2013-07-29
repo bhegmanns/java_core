@@ -10,15 +10,18 @@ import org.junit.runner.RunWith;
 /**
  * 
  * @author bernd
- *
+ * 
  */
 @RunWith(Theories.class)
-public class DataPointTest {
+public class DataPointTest
+{
 
-	@DataPoints public static int[] WERTE = {1, 2, 3, 4, 5, 10};
-	
-	@Theory
-	public void werteKleiner10(int wert){
-		MatcherAssert.assertThat(wert, Matchers.lessThanOrEqualTo(10));
-	}
+    @DataPoints
+    public static int[] WERTE = { 1, 2, 3, 4, 5, 10 };
+
+    @Theory
+    public void werteKleiner10( int wert )
+    {
+        MatcherAssert.assertThat( wert , Matchers.lessThanOrEqualTo( 10 ) );
+    }
 }

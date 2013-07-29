@@ -1,5 +1,6 @@
 package hegmanns.it.de.junit.testing.kategorien;
 
-public interface Kategorie01 {
+public interface Kategorie01
+{
 
 }
