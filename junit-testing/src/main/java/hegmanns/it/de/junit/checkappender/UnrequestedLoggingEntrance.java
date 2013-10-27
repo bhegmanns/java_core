@@ -6,6 +6,11 @@ import org.apache.log4j.spi.LoggingEvent;
 /**
  * LoggingEntrance, der ein das FEHLEN eines konkreten Logs prueft.
  * 
+ * Eingeschraengt kann der Level, LoggerName, MessagePart.
+ * 
+ * Bitte beachten, dass bei level==null, loggerName==null , messagePart==null
+ * keine Einschraenkung gilt. Dass bedeutet, es darf NICHTS geloggt werden.
+ * 
  * @author B. Hegmanns
  */
 public class UnrequestedLoggingEntrance implements LoggingEntrance {
@@ -14,7 +19,7 @@ public class UnrequestedLoggingEntrance implements LoggingEntrance {
 	private String loggerName;
 	private String messagePart;
 
-	private boolean entranceNotFound = true;
+	private boolean eintragGefunden = false;
 	
 	
 	public UnrequestedLoggingEntrance() {
@@ -31,30 +36,30 @@ public class UnrequestedLoggingEntrance implements LoggingEntrance {
 
 	@Override
 	public void check(LoggingEvent loggingEvent) {
-		if (entranceNotFound)
+		if (!eintragGefunden)
 		{
-			entranceNotFound = entranceNotFound && !(levelNotFound(loggingEvent) && loggerNameNotFound(loggingEvent) && messagePartNotFound(loggingEvent));
+			eintragGefunden = eintragGefunden || (levelEnthalten(loggingEvent) && loggerNameEnthalten(loggingEvent) && messagePartEnthalten(loggingEvent));
 		}
 
 	}
 	
-	private boolean levelNotFound(LoggingEvent loggingEvent)
+	private boolean levelEnthalten(LoggingEvent loggingEvent)
 	{
-		return level != null && level.equals(loggingEvent.getLevel());
+		return level == null || level.equals(loggingEvent.getLevel());
 	}
 	
-	private boolean loggerNameNotFound(LoggingEvent loggingEvent){
-		return loggerName != null || loggerName.equals(loggingEvent.getLoggerName());
+	private boolean loggerNameEnthalten(LoggingEvent loggingEvent){
+		return loggerName == null || loggerName.equals(loggingEvent.getLoggerName());
 	}
 	
-	private boolean messagePartNotFound(LoggingEvent loggingEvent)
+	private boolean messagePartEnthalten(LoggingEvent loggingEvent)
 	{
-		return messagePart != null || ((String)loggingEvent.getMessage()).indexOf(messagePart) != -1;
+		return messagePart == null || ((String)loggingEvent.getMessage()).indexOf(messagePart) != -1;
 	}
 
 	@Override
 	public boolean hasMatched() {
-		return entranceNotFound;
+		return !eintragGefunden;
 	}
 
 }

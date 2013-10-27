@@ -23,8 +23,5 @@ public class CheckAppenderTest {
 		LOG.info("Hallo Welt");
 	}
 	
-	@Test//(expected = AssertionError.class)
-	public void eintragWirdNichtGefunden(){
-		checkAppenderRule.addLoggingEntrance(RequiredLoggingEntrance.create(Level.INFO, "Hallo Welt"));
-	}
+	
 }

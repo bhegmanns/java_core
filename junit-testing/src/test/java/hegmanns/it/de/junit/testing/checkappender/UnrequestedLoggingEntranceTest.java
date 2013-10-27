@@ -45,7 +45,7 @@ public class UnrequestedLoggingEntranceTest {
 	public void unerwuenschterAllesNullMatchedTrue(){		
 		UnrequestedLoggingEntrance entrance = new UnrequestedLoggingEntrance(null, null, null);
 		entrance.check(MockitoJunitTestObjects.createLoggingEventMock(Level.INFO, "a", "hallo Welt"));
-		MatcherAssert.assertThat("", entrance.hasMatched(), Matchers.is(true));
+		MatcherAssert.assertThat("", entrance.hasMatched(), Matchers.is(false));
 	}
 	
 	
@@ -61,7 +61,7 @@ public class UnrequestedLoggingEntranceTest {
 	
 	
 	@Test
-	public void unerwuenschterLogWirdNichtGeloggtEntranceMapped(){		
+	public void unerwuenschterLogWirdNichtGeloggtEntranceMatchedTrue(){		
 		UnrequestedLoggingEntrance entrance = new UnrequestedLoggingEntrance(Level.INFO, "b", "Hallo");
 		entrance.check(MockitoJunitTestObjects.createLoggingEventMock(Level.INFO, "a", "hallo Welt"));
 		MatcherAssert.assertThat("", entrance.hasMatched(), Matchers.is(true));
