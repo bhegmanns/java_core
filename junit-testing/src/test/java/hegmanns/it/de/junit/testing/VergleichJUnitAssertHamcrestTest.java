@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.Assert;
+import org.junit.Rule;
 import org.junit.Test;
 
 /**
