@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence>
+
+<persistence-unit name="test">
+  	<provider>org.hibernate.ejb.HibernatePersistence</provider>
+  	<!-- fuer Connection-Pool jta-data-source></jta-data-source -->
+  	<jar-file>file:/target/classes</jar-file>
+  	<properties>
+  		<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
+  		<!-- property name="hibernate.hbm2ddl.auto" value="create"/ -->
+  		
+  		<property name="hibernate.connection.driver_class" value="oracle.jdbc.OracleDriver"/>
+  		<property name="hibernate.connection.username" value="ORDERKERN"/>
+  		<property name="hibernate.connection.password" value="orderkern"/>
+  		<!-- property name="hibernate.show_sql" value="true"/ -->
+  		<property name="hibernate.connection.url"
+  					value="jdbc:oracle:thin:hr/hr@localhost:1521/XE"/>
+  	</properties>
+  </persistence-unit>
+</persistence>

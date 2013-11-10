@@ -1,0 +1,13 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                        http://springframework.org/schema/jdbc http://springframework.org/schema/jdbc/spring-jdbc-3.0.xsd">
+    
+    <bean class="de.hegmanns.it.schulung.hibernate.gui.action.schritt.hibernate.HibernateInitSessionFactory" name="HibernateInitSessionFactory"/>
+    <bean class="de.hegmanns.it.schulung.hibernate.gui.action.schritt.hibernate.HibernateInitSession" name="HibernateInitSession"/>
+    <bean class="de.hegmanns.it.schulung.hibernate.gui.action.schritt.hibernate.HibernateCloseSession" name="HibernateCloseSession"/>
+    <bean class="de.hegmanns.it.schulung.hibernate.gui.action.schritt.hibernate.HibernateTxStart" name="HibernateTxStart"/>
+    <bean class="de.hegmanns.it.schulung.hibernate.gui.action.schritt.hibernate.HibernateTxEnd" name="HibernateTxEnd" />
+    <bean class="de.hegmanns.it.schulung.hibernate.gui.action.schritt.hibernate"
+</beans>
