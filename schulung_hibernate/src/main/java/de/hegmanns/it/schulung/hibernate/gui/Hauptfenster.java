@@ -29,6 +29,12 @@ import de.hegmanns.it.schulung.hibernate.gui.action.schritt.hibernate.HibernateO
 import de.hegmanns.it.schulung.hibernate.gui.action.schritt.hibernate.HibernateOrderSpeichern;
 import de.hegmanns.it.schulung.hibernate.gui.action.schritt.hibernate.HibernateTxEnd;
 import de.hegmanns.it.schulung.hibernate.gui.action.schritt.hibernate.HibernateTxStart;
+import de.hegmanns.it.schulung.hibernate.gui.action.schritt.jdbc.DBConnectionErstellen;
+import de.hegmanns.it.schulung.hibernate.gui.action.schritt.jdbc.DBConnectionSchliessen;
+import de.hegmanns.it.schulung.hibernate.gui.action.schritt.jdbc.DBOrderDisplay;
+import de.hegmanns.it.schulung.hibernate.gui.action.schritt.jdbc.DBOrderSchieben;
+import de.hegmanns.it.schulung.hibernate.gui.action.schritt.jdbc.DBTransactionEnde;
+import de.hegmanns.it.schulung.hibernate.gui.action.schritt.jdbc.DBTransactionStarten;
 
 public class Hauptfenster extends JFrame implements ActionListener, Observer{
 	private static final long serialVersionUID = 1L;
@@ -61,6 +67,7 @@ public class Hauptfenster extends JFrame implements ActionListener, Observer{
 		
 		aufgabe01.addActionListener(this);
 		aufgabe02.addActionListener(this);
+		aufgabe03.addActionListener(this);
 		menubar.add(menu);
 		this.setJMenuBar(menubar);
 
@@ -137,6 +144,15 @@ public class Hauptfenster extends JFrame implements ActionListener, Observer{
 			}
 		}
 		
+		if (e.getSource() == aufgabe03)
+		{
+			try{
+				displayPanel(getAufgabe03());
+			}catch(IllegalAccessException e1){
+				e1.printStackTrace();
+			}
+		}
+		
 	}
 	
 	private void displayPanel(Aufgabe aufgabe) throws IllegalAccessException{
@@ -185,6 +201,22 @@ public class Hauptfenster extends JFrame implements ActionListener, Observer{
 		
 		return aufgabe;
 	}
+	
+	public Aufgabe getAufgabe03(){
+		Aufgabe aufgabe = new Aufgabe(getSchritteAufgabe03());
+		
+		Map<String, String> parameters = new HashMap<String, String>();
+		parameters.put(DBConnectionErstellen.DB_ISOLATION_LEVEL, "Isolation-Level (2 oder 8)");
+		parameters.put(DBOrderDisplay.ORDER_ID, "die Order-ID");
+		parameters.put(DBOrderSchieben.ANZAHL_TAGE, "Anzahl an Tagen (oder 0)");
+		parameters.put(DBOrderSchieben.ANZAHL_JAHRE, "Anzahl an Jahren (order 0)");
+		parameters.put(DBTransactionEnde.TX_COMMIT_JN, "Transaktion commiten (J oder N)");
+		
+		aufgabe.setRequestedParameter(parameters);
+		
+		return aufgabe;
+	}
+	
 	private List<Schritt> getSchritteAufgabe01()
 	{
 		List<Schritt> schritte = new ArrayList<Schritt>();
@@ -220,6 +252,20 @@ public class Hauptfenster extends JFrame implements ActionListener, Observer{
 		schritte.add(new HibernateTxEnd());
 		schritte.add(new HibernateCloseSession());
 		
+		return schritte;
+	}
+	
+	private List<Schritt> getSchritteAufgabe03(){
+		List<Schritt> schritte = new ArrayList<Schritt>();
+		
+		schritte.add(new DBConnectionErstellen());
+		schritte.add(new DBTransactionStarten());
+		schritte.add(new DBOrderDisplay());
+		schritte.add(new DBOrderSchieben());
+		schritte.add(new DBOrderDisplay());
+		
+		schritte.add(new DBTransactionEnde());
+		schritte.add(new DBConnectionSchliessen());
 		return schritte;
 	}
 

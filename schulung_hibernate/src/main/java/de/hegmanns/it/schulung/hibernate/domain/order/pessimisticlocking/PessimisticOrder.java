@@ -4,7 +4,11 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
 
 import de.hegmanns.it.schulung.hibernate.domain.order.BaseEntity;
 import de.hegmanns.it.schulung.hibernate.domain.order.Orderposten;
@@ -15,6 +19,9 @@ public class PessimisticOrder extends BaseEntity{
 	
 	private String depotnummer;
 	
+	@OneToMany
+	@Cascade({org.hibernate.annotations.CascadeType.ALL})
+	@JoinColumn(name = "WP_ORDER_ID")
 	private List<Orderposten> orderposten;
 	
 	private Date zeitpunktErstellung;
