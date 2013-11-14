@@ -72,16 +72,21 @@
 			<artifactId>spring-context</artifactId>
 			<version>3.2.4.RELEASE</version>
 		</dependency>
+		<dependency>
+			<groupId>de.hegmanns.it</groupId>
+			<artifactId>utils-core</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
   </dependencies>
 
 <build>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.1</version>
+				<version>${version.compiler}</version>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>${version.jdk}</source>
+					<target>${version.jdk}</target>
 				</configuration>
 			</plugin>
 			<plugin>

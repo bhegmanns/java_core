@@ -10,6 +10,9 @@ import org.hibernate.cfg.AnnotationConfiguration;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import de.hegmanns.it.schulung.hibernate.domain.order.optimisticlocking.OptimisticOrder;
+import de.hegmanns.it.schulung.hibernate.domain.order.pessimisticlocking.PessimisticOrder;
+
 public class EntityKonkurrierendTeil1Test {
 	
 private static SessionFactory sessionFactory = null;
@@ -21,6 +24,9 @@ private static SessionFactory sessionFactory = null;
 		configuration.addAnnotatedClass(Orderposten.class);
 		configuration.addAnnotatedClass(Orderteil.class);
 		configuration.addAnnotatedClass(Ordervorgang.class);
+		
+		configuration.addAnnotatedClass(OptimisticOrder.class);
+		configuration.addAnnotatedClass(PessimisticOrder.class);
 		
 		
 		configuration.configure();
