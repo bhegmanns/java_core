@@ -1,4 +1,4 @@
-package de.hegmanns.it.schulung.hibernate;
+package de.hegmanns.it.schulung.dbverbindung.hibernate;
 
 import java.io.Serializable;
 import java.sql.Connection;

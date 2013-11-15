@@ -4,8 +4,8 @@ import java.util.Date;
 
 import org.junit.Test;
 
-import de.hegmanns.it.schulung.hibernate.HibernateLocator;
-import de.hegmanns.it.schulung.hibernate.SessionTxPair;
+import de.hegmanns.it.schulung.dbverbindung.hibernate.HibernateLocator;
+import de.hegmanns.it.schulung.dbverbindung.hibernate.SessionTxPair;
 import de.hegmanns.it.schulung.hibernate.domain.order.optimisticlocking.OptimisticOrder;
 import de.hegmanns.it.schulung.hibernate.domain.order.pessimisticlocking.PessimisticOrder;
 
@@ -42,4 +42,6 @@ public class ContainedTransactionTest {
 		tx1.commit();
 		
 	}
+	
+	
 }

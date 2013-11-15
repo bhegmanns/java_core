@@ -1,4 +1,4 @@
-package de.hegmanns.it.schulung.hibernate;
+package de.hegmanns.it.schulung.dbverbindung.hibernate;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
