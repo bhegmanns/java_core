@@ -14,10 +14,17 @@ import com.sun.org.apache.xml.internal.utils.DefaultErrorHandler;
 
 public class DbConnectionLocator {
 	
-	private Map<String, String> xmlKonfigurationPropertiesEinlesen(String datei)
+	private static void init()
+	{
+		synchronized(DbConnectionLocator.class){
+			Map<String, String> dbPropierties = xmlKonfigurationPropertiesEinlesen("/hibernate.cfg.xml");
+		}
+	}
+	
+	private static Map<String, String> xmlKonfigurationPropertiesEinlesen(String datei)
 	{
 		Map<String, String> properties = new HashMap<>();
-		InputStream stream = this.getClass().getResourceAsStream(datei);
+		InputStream stream = DbConnectionLocator.class.getResourceAsStream(datei);
 		
 		try{
 			DocumentBuilderFactory domBuilderFactory = DocumentBuilderFactory.newInstance();
