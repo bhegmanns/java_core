@@ -18,7 +18,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
+import de.hegmanns.test.Component;
+
+@Category(Component.class)
 public class EntityTest {
 
 	private static SessionFactory sessionFactory = null;
