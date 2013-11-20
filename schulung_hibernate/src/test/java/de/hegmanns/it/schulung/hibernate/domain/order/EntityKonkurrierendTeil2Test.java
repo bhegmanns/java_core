@@ -8,6 +8,7 @@ import org.hibernate.cfg.AnnotationConfiguration;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+//@Category(Component.class)
 public class EntityKonkurrierendTeil2Test {
 
 private static SessionFactory sessionFactory = null;

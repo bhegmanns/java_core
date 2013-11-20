@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Random;
 
 import org.apache.commons.lang.time.DateUtils;
 import org.hamcrest.MatcherAssert;
@@ -15,10 +14,13 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
+import de.hegmanns.test.Component;
+
+@Category(Component.class)
 public class EntityTest {
 
 	private static SessionFactory sessionFactory = null;

@@ -9,9 +9,14 @@
   		<property name="connection.driver_class">oracle.jdbc.OracleDriver</property>
   		<property name="connection.username">ORDERKERN</property>
   		<property name="connection.password">orderkern</property>
-  		<property name="connection.isolation">2</property><!-- 2 8 -->
+  		<property name="connection.isolation">8</property><!-- 2 8 -->
   		<property name="show_sql">true</property>
+  		<property name="format_sql">true</property>
+  		<property name="use_sql_comments">true</property>
   		<property name="connection.url">jdbc:oracle:thin:hr/hr@localhost:1521/XE</property>
+  		<!-- 192.168.178.80 -->
+  		<!-- hr@localhost -->
+  		<!-- jdbc:oracle:thin:hr/hr@localhost:1521/XE -->
   		
   		<!-- <mapping resource="/de/hegmanns/it/hibernate/entity/TxIsolation.hbm.xml"/> -->
 </session-factory>

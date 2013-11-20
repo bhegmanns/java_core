@@ -9,10 +9,13 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 import de.hegmanns.it.schulung.hibernate.domain.order.optimisticlocking.OptimisticOrder;
 import de.hegmanns.it.schulung.hibernate.domain.order.pessimisticlocking.PessimisticOrder;
+import de.hegmanns.test.Component;
 
+@Category(Component.class)
 public class EntityKonkurrierendTeil1Test {
 	
 private static SessionFactory sessionFactory = null;
