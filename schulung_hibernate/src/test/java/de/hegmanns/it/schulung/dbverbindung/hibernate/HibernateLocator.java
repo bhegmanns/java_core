@@ -15,6 +15,16 @@ public class HibernateLocator {
 
 	private static SessionFactory sessionFactory = null;
 	
+	private static Integer isolationLevel = null;
+	
+	public static void setIsolatioLevel(int requestedIsolationLevel)
+	{
+		if (isolationLevel == null && sessionFactory == null)
+		{
+			isolationLevel = requestedIsolationLevel;
+		}
+	}
+	
 	public static SessionFactory getSessionFactory(){
 		if (sessionFactory == null)
 		{
@@ -49,8 +59,12 @@ public class HibernateLocator {
 			configuration.addAnnotatedClass(PessimisticOrder.class);
 			
 			
-			configuration.configure();
 			
+//			if(isolationLevel != null)
+//			{
+//				configuration.setProperty("hibernate.connection.isolation", "" + isolationLevel);
+//			}
+			configuration.configure();
 			sessionFactory = configuration.buildSessionFactory();
 		}
 		
