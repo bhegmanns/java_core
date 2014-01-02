@@ -1,5 +1,13 @@
 package de.hegmanns.it.utils.core;
 
+/**
+ * Darstellung eines Wertepaar.
+ * 
+ * @author B. Hegmanns
+ *
+ * @param <S> Typ fuer den ersten Wert
+ * @param <T> Typ fuer den zweiten Wert
+ */
 public class Pair<S, T> {
 
 	private S first;
