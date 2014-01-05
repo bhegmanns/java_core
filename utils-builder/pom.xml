@@ -1,16 +1,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
 
-	<groupId>de.hegmanns.it</groupId>
-	<artifactId>utils-core</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+  <groupId>de.hegmanns.it</groupId>
+  <artifactId>utils-builder</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
 
-	<name>utils-core</name>
-	<url>http://maven.apache.org</url>
+  <name>utils-builder</name>
+  <url>http://maven.apache.org</url>
 
-	<properties>
+  <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<version.compiler>2.3.2</version.compiler>
@@ -79,6 +79,16 @@
 			<artifactId>ant-apache-log4j</artifactId>
 			<version>${version.ant}</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>de.hegmanns.it</groupId>
+			<artifactId>utils-core</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>de.hegmanns.it</groupId>
+			<artifactId>utils-testdomains</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 
