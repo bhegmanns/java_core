@@ -32,6 +32,24 @@
 		<version.apache.beanutils>1.8.3</version.apache.beanutils>
 		<version.ant>1.6.5</version.ant>
 	</properties>
+	
+	<repositories>
+		<repository>
+			<id>rep-repo</id>
+			<url>https://github.com/bhegmanns/mvn_repo/tree/master/repo</url>
+		</repository>
+	</repositories>
+	
+	<distributionManagement>
+		<repository>
+			<id>repo</id>
+			<url>file:/home/bernd/git/hegi_maven_repo/mvn_repo/repo</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshot-repo</id>
+			<url>file:/home/bernd/git/hegi_maven_repo/mvn_repo/repo</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 	<dependencies>
 		<dependency>
