@@ -9,6 +9,7 @@
 
 	<name>utils-core</name>
 	<url>http://maven.apache.org</url>
+	<!-- hier noch die richtige URL eintragen -->
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
